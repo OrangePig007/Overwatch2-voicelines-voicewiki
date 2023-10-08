@@ -90,6 +90,8 @@
 
 == 脱险 ==
 #CloseCall
+*受伤呼唤
+#InjuredCallout
 
 *状态不好
 #Unwell
