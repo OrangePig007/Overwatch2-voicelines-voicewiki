@@ -1,22 +1,7 @@
 import os
 from pydub import AudioSegment
 
-# 语言映射关系
-LANG_MAPPING = {
-    "JA": "ja",
-    "EN": "en",
-    "ZHS": "zh",
-    "ZHT": "zht",
-    "KR": "ko",
-    "RU": "ru",
-    "FR": "fr",
-    "DE": "de",
-    "IT": "it",
-    "ESAL": "esla",
-    "ESEU": "eseu",
-    "PT": "pt",
-    "PL": "pl"
-}
+# 语言映射关系，用于给音频后缀命名
 LANG_DIRECTORY_MAPPING = {
     "ja": "JA",
     "en": "EN",
@@ -38,6 +23,7 @@ def search(path, num):
         for file in files:
             if num in file:
                 result.append(os.path.join(root, file))
+                print('找到文件：' + os.path.join(root, file))
     return result
 
 def get_lang_abbr(directory):
@@ -61,7 +47,7 @@ def rename_and_convert(file_paths, output_folder):
         sound.export(new_path, format="mp3")
 
 def output_text(file_paths, output_path, num):
-    en = zh = zht = ja = ko = ru = fr = de = it = esla = eseu = pt = pl = ""
+    en = zhs = zht = ja = ko = ru = fr = de = it = esla = eseu = pt = pl = ""
 
     for file_path in file_paths:
         if 'EN\\' in file_path:
@@ -69,7 +55,7 @@ def output_text(file_paths, output_path, num):
         elif 'ZHT\\' in file_path:
             zht = os.path.basename(file_path).split("-", 1)[-1][0:-4]
         elif 'ZHS\\' in file_path:
-            zh = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+            zhs = os.path.basename(file_path).split("-", 1)[-1][0:-4]
         elif 'JA\\' in file_path:
             ja = os.path.basename(file_path).split("-", 1)[-1][0:-4]
         elif 'KR\\' in file_path:
@@ -94,7 +80,7 @@ def output_text(file_paths, output_path, num):
     with open(output_path, "w+", encoding='utf-8') as file_to_write:
         file_to_write.write(f'''{{{{OW13UFool|Num = {num}
 |en = {en} 
-|zh = {zh}
+|zh = {zhs}
 |zht = {zht}
 |ja = {ja}
 |ko = {ko}
@@ -110,7 +96,7 @@ def output_text(file_paths, output_path, num):
 
 path = "F:/守望先锋语音"
 num = input("请输入ID: ")
-output_path = "F:/守望先锋语音/1.txt"
+output_path = "F:/守望先锋语音/ulti.txt"
 output_folder = "F:/守望先锋语音/转换后的音频"
 
 file_paths = search(path, num)
