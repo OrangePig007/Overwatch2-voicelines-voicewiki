@@ -37,27 +37,32 @@ def save(file_path, hero, action, zh_path, en_path, first=None):
                 f.write(f'{{{{OW2Audio|File={fi}}}}}\n')
 
 
-hero = '索杰恩'
-file = f'F:/QQ文件/试验/20231005-{hero}.txt'
-action_en = 'F:/守望先锋语音/EN/HeroVoice/Sojourn'
-action_zh = f'F:/守望先锋语音/ZHS/HeroVoice/{hero}'
+hero = 'All'
+file = f'E:\守望先锋毛加版本语音\py/new-vo.txt'
+action_en = 'E:\守望先锋毛加版本语音/new-vo\EN\HeroVoice'
+action_zh = f'E:\守望先锋毛加版本语音/new-vo\ZHS\HeroVoice'
 actions_en = os.listdir(action_en)
 
 actions = []
-for i in actions_en:
-    path = os.path.join(action_en, i)
+
+def collect_actions(directory, actions, base_path):
     all_ogg = True
-    for sub in os.listdir(path):
-        sub_path = os.path.join(path, sub)
+    for sub in os.listdir(directory):
+        sub_path = os.path.join(directory, sub)
         if os.path.isdir(sub_path):
             all_ogg = False
-            actions.append(os.path.join(i, sub))
+            collect_actions(sub_path, actions, base_path)
     if all_ogg:
-        actions.append(i)
+        relative_path = os.path.relpath(directory, base_path)
+        actions.append(relative_path)
+
+for i in actions_en:
+    path = os.path.join(action_en, i)
+    collect_actions(path, actions, action_en)
 
 actions.sort()
 print(actions)
 open(file, 'w+', encoding='utf-8')
-first_gen = set(i.strip() for i in open('F:/QQ文件/试验/守望先锋1代所有语音序号.txt', 'r', encoding='utf-8').readlines())
+first_gen = set(i.strip() for i in open('E:\守望先锋毛加版本语音\py\Overwatch2-voicelines-voicewiki-main\守望先锋2语音处理py\overall/守望先锋1代所有语音序号.txt', 'r', encoding='utf-8').readlines())
 for action in actions:
     save(file, hero, action, action_zh, action_en, first_gen)
