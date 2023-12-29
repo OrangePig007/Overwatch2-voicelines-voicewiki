@@ -17,7 +17,7 @@ name_mapping = {
     '回声': 'Echo',
     '堡垒': 'Bastion',
     '士兵：76': 'Soldier_ 76',
-    '托比昂': 'Torbjorn',
+    '托比昂': 'Torbjörn',
     '死神': 'Reaper',
     '法老之鹰': 'Pharah',
     '源氏': 'Genji',
@@ -30,7 +30,7 @@ name_mapping = {
     '黑影': 'Sombra',
     '黑百合': 'Widowmaker',
     '索杰恩': 'Sojourn',
-    '卢西奥': 'Lucio',
+    '卢西奥': 'Lúcio',
     '天使': 'Mercy',
     '安娜': 'Ana',
     '巴蒂斯特': 'Baptiste',
@@ -40,10 +40,21 @@ name_mapping = {
     '雾子': 'Kiriko',
     '生命之梭': 'Lifeweaver',
     '伊拉锐': 'Illari',
+    '毛加': 'Mauga',
+
+    '克莱尔': 'Claire',
+    '雷吉': 'Reggie',
+    '露娜': 'Luna',
+    '侍者机器人': 'Waitron',
+    '收音机': 'Radio',
+    '叙述者': 'The Narrator',
+    '雅典娜': 'Athena',
+    '伊基': 'Iggy',
+    '伊纳瑞斯': 'Inarius',
 }
 
 # 指定包含二级文件夹的父文件夹路径
-parent_folder = 'F:\守望先锋语音\对话(zh)'
+parent_folder = 'E:\守望先锋毛加版本语音/new-vo\ZHS\HeroVoice'
 
 # 遍历父文件夹中的二级文件夹
 for old_name, new_name in name_mapping.items():
