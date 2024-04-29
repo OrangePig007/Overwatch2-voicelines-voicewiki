@@ -38,7 +38,7 @@ def save(file_path, hero, action, zh_path, en_path, first=None):
 
 
 hero = 'all'
-file = f'F:\守望先锋语音整理\ow-240426/all-240426.txt'
+file = f'F:\守望先锋语音整理\ow-240426/{hero}-240426.txt'
 action_en = r'F:\守望先锋语音整理\ow-240426\new-vo\EN\HeroVoice'
 action_zh = r'F:\守望先锋语音整理\ow-240426\new-vo\ZH\HeroVoice'
 actions_en = os.listdir(action_en)
