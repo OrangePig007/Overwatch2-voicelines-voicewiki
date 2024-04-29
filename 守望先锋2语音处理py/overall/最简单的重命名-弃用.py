@@ -17,7 +17,7 @@ def extract_name(path):
             name_num=name_num[0:-4]
             name_text = "音效"
         text= "{{OWAudio|File=" + name_num + "_zh.ogg|Script=" + name_text + "}}\n"
-        f.write(text)
+        #f.write(text)
 
 path = input("请输入文件夹路径: ")
 f = open("D:/1.txt", "w+", encoding='utf-8')

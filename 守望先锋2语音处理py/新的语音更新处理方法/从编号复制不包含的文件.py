@@ -2,13 +2,13 @@ import os
 import shutil
 
 # 输入文件夹目录
-source_folder = 'E:\守望先锋毛加版本语音/vo\ZHS'
+source_folder = r'F:\守望先锋语音整理\ow-240426\ZH'
 
 # 输出文件夹目录
-destination_folder = 'E:\守望先锋毛加版本语音/new-vo\ZHS'
+destination_folder = r'F:\守望先锋语音整理\ow-240426\new-vo\ZH'
 
 # 从文本文件中读取要排除的编号
-exclude_numbers_file = 'E:\守望先锋毛加版本语音\py/old_num_file.txt'
+exclude_numbers_file = r'F:\守望先锋语音整理\ow-240426\all-vo-num-240426.txt'
 with open(exclude_numbers_file, 'r') as file:
     exclude_numbers = [line.strip() for line in file]
 

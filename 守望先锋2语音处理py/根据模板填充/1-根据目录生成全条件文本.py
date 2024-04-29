@@ -37,10 +37,10 @@ def save(file_path, hero, action, zh_path, en_path, first=None):
                 f.write(f'{{{{OW2Audio|File={fi}}}}}\n')
 
 
-hero = 'All'
-file = f'E:\守望先锋毛加版本语音\py/new-vo.txt'
-action_en = 'E:\守望先锋毛加版本语音/new-vo\EN\HeroVoice'
-action_zh = f'E:\守望先锋毛加版本语音/new-vo\ZHS\HeroVoice'
+hero = 'all'
+file = f'F:\守望先锋语音整理\ow-240426/all-240426.txt'
+action_en = r'F:\守望先锋语音整理\ow-240426\new-vo\EN\HeroVoice'
+action_zh = r'F:\守望先锋语音整理\ow-240426\new-vo\ZH\HeroVoice'
 actions_en = os.listdir(action_en)
 
 actions = []
@@ -63,6 +63,7 @@ for i in actions_en:
 actions.sort()
 print(actions)
 open(file, 'w+', encoding='utf-8')
-first_gen = set(i.strip() for i in open('E:\守望先锋毛加版本语音\py\Overwatch2-voicelines-voicewiki-main\守望先锋2语音处理py\overall/守望先锋1代所有语音序号.txt', 'r', encoding='utf-8').readlines())
+#first_gen = set(i.strip() for i in open('E:\守望先锋毛加版本语音\py\Overwatch2-voicelines-voicewiki-main\守望先锋2语音处理py\overall/守望先锋1代所有语音序号.txt', 'r', encoding='utf-8').readlines())
+first_gen = ''
 for action in actions:
     save(file, hero, action, action_zh, action_en, first_gen)

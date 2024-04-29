@@ -41,6 +41,8 @@ name_mapping = {
     '生命之梭': 'Lifeweaver',
     '伊拉锐': 'Illari',
     '毛加': 'Mauga',
+    '探奇': 'Venture',
+
 
     '克莱尔': 'Claire',
     '雷吉': 'Reggie',
@@ -54,7 +56,7 @@ name_mapping = {
 }
 
 # 指定包含二级文件夹的父文件夹路径
-parent_folder = 'E:\守望先锋毛加版本语音/new-vo\ZHS\HeroVoice'
+parent_folder = r'F:\守望先锋语音整理\ow-240426\ZH-conv\HeroConvo'
 
 # 遍历父文件夹中的二级文件夹
 for old_name, new_name in name_mapping.items():

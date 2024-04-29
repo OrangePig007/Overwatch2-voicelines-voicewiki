@@ -1,15 +1,15 @@
 
-hero_zh = '索杰恩'
-condition = '任务相关'
+hero = 'Venture'
+condition = '地图触发'
 #击杀语音 交流信号 局内触发 任务相关 地图触发
 # 读取文档1和文档2的内容
 # with open(f'F:/QQ文件/试验/20231005-{hero_zh}.txt', 'r', encoding='utf-8') as file1:
 #     doc1_content = file1.read()
 
-with open(f'E:/视频/素材-守望先锋/守望先锋语音提取/20221104/{hero_zh}.txt', 'r', encoding='utf-8') as file1:
+with open(f'F:\守望先锋语音整理\ow-240426/{hero}.txt', 'r', encoding='utf-8') as file1:
     doc1_content = file1.read()
 
-with open(f'F:/QQ文件/试验/{condition}模板.txt', 'r', encoding='utf-8') as file2:
+with open(f'F:\守望先锋语音整理\ow-240426\Overwatch2-voicelines\守望先锋2语音处理py\根据模板填充/{condition}模板.txt', 'r', encoding='utf-8') as file2:
     doc2_content = file2.read()
 
 # 将文档2的内容分割成行
@@ -26,7 +26,7 @@ for line in doc2_lines:
 
 # 遍历文档1的内容，查找匹配的英文标识码，并填充内容
 for code, content in code_to_content.items():
-    start_marker = f'=={hero_zh}\\{code}=='
+    start_marker = f'=={hero}\\{code}=='
     end_marker = f'\n\n'
     start_index = doc1_content.find(start_marker)
     
@@ -52,5 +52,5 @@ for line in doc2_lines:
         final_doc += line + '\n'
 
 # 将最终文档写入文件
-with open('F:/QQ文件/试验/output.txt', 'w', encoding='utf-8') as final_file:
+with open('F:\守望先锋语音整理\ow-240426\Overwatch2-voicelines\守望先锋2语音处理py\根据模板填充/output.txt', 'w', encoding='utf-8') as final_file:
     final_file.write(final_doc)

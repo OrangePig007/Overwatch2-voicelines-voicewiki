@@ -34,10 +34,10 @@ def save(file_path, hero, action, zh_path, en_path, first=None):
         f.write('}}')
 
 
-hero = 'Lifeweaver'
-file = f'F:/守望先锋语音/{hero}.txt'
-action_en = 'F:/守望先锋语音/对话(en)'
-action_zh = 'F:/守望先锋语音/对话(zh)'
+hero = 'all-conv'
+file = f'F:\守望先锋语音整理\ow-240426/{hero}.txt'
+action_en = r'F:\守望先锋语音整理\ow-240426\EN-conv\HeroConvo'
+action_zh = r'F:\守望先锋语音整理\ow-240426\ZH-conv\HeroConvo'
 actions_en = os.listdir(action_en)
 
 actions = []

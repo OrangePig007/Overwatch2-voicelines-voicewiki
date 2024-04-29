@@ -13,8 +13,8 @@ def process_folder(folder_path, target_folder, lang):
                     shutil.copy(src_path, dest_path)
 
 # 源文件夹路径
-action_en = 'F:/守望先锋语音/对话(en)'
-action_zh = 'F:/守望先锋语音/对话(zh)'
+action_en = 'F:\守望先锋语音20240219\con-en\HeroConvo\The Ravager'
+action_zh = 'F:\守望先锋语音20240219\con-zh\HeroConvo\The Ravager'
 
 # 目标文件夹路径
 target_folder = 'F:/待上传/'
