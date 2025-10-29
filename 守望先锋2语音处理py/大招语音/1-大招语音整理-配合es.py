@@ -82,7 +82,7 @@ def output_text(file_paths, output_path, num):
         elif 'PL\\' in file_path:
             pl = os.path.basename(file_path).split("-", 1)[-1][0:-4]
 
-    with open(output_path, "w+", encoding='utf-8') as file_to_write:
+    with open(output_path, "a+", encoding='utf-8') as file_to_write:
         file_to_write.write(f'''{{{{OW13U|Num = {num}
 |en = {en}
 |en_tr = 
@@ -110,13 +110,14 @@ def output_text(file_paths, output_path, num):
 |pt_tr = 
 |pl = {pl}
 |pl_tr = 
-}}}}''')
+}}}}
+''')
 
-path = "F:\\守望先锋语音整理\\ow-240826"
+path = "G:\\守望语音\\ow-wuyang-ver"
 num = input("请输入ID: ")
-output_path = "F:\\守望先锋语音整理\\ow-240826\\ulti.txt"
-output_folder = "F:\\守望先锋语音整理\\ow-240826\\转换后的音频"
-temp_txt_path = "F:\\守望先锋语音整理\\ow-240826\\temp_search_results.txt"
+output_path = "G:\\守望语音\\ow-wuyang-ver\\ulti.txt"
+output_folder = "G:\\守望语音\\ow-wuyang-ver\\转换后的音频"
+temp_txt_path = "G:\\守望语音\\ow-wuyang-ver\\temp_search_results.txt"
 
 file_paths = search_with_es(num, path, temp_txt_path)
 if file_paths:

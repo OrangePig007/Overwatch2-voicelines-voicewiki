@@ -37,10 +37,10 @@ def save(file_path, hero, action, zh_path, en_path, first=None):
                 f.write(f'{{{{OW2Audio|File={fi}}}}}\n')
 
 
-hero = 'all'
-file = f'F:\守望先锋语音整理\ow-240426/{hero}-240426.txt'
-action_en = r'F:\守望先锋语音整理\ow-240426\new-vo\EN\HeroVoice'
-action_zh = r'F:\守望先锋语音整理\ow-240426\new-vo\ZH\HeroVoice'
+hero = 'stadium'
+file = f'G:\守望语音\ow-wuyang-ver/{hero}-250901.txt'
+action_zh = r'G:\守望语音\ow-wuyang-ver\ZH-NPC\NPCVoice\角斗领域播报员'
+action_en = r'G:\守望语音\ow-wuyang-ver\EN-NPC\NPCVoice\Stadium Announcer'
 actions_en = os.listdir(action_en)
 
 actions = []

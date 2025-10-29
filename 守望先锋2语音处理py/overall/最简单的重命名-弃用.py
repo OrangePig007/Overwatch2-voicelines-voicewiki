@@ -4,7 +4,7 @@ def file_rename(path):
     for file in os.listdir(path):
         name = os.path.basename(file)
         name_num = name[0:16]
-        name_new = name_num + '_zh.ogg'            
+        name_new = name_num + '_en.ogg'            
         os.rename(os.path.join(path,file),os.path.join(path,name_new))
 
 def extract_name(path):

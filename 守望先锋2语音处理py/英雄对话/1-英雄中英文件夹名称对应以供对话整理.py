@@ -42,6 +42,10 @@ name_mapping = {
     '伊拉锐': 'Illari',
     '毛加': 'Mauga',
     '探奇': 'Venture',
+    '朱诺': 'Juno',
+    '骇灾': 'Hazard',
+    '弗蕾娅': 'Freja',
+    '无漾': 'Wuyang',
 
 
     '克莱尔': 'Claire',
@@ -53,10 +57,11 @@ name_mapping = {
     '雅典娜': 'Athena',
     '伊基': 'Iggy',
     '伊纳瑞斯': 'Inarius',
+    '毁灭者':'The Ravager',
 }
 
 # 指定包含二级文件夹的父文件夹路径
-parent_folder = r'F:\守望先锋语音整理\ow-240426\ZH-conv\HeroConvo'
+parent_folder = r'G:\守望语音\ow-wuyang-ver\对话(zh)\HeroConvo'
 
 # 遍历父文件夹中的二级文件夹
 for old_name, new_name in name_mapping.items():

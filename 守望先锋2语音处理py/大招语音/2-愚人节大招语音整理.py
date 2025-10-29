@@ -7,7 +7,7 @@ LANG_DIRECTORY_MAPPING = {
     "en": "EN",
     "zh": "ZHS",
     "zht": "ZHT",
-    "ko": "KR",
+    "ko": "KO",
     "ru": "RU",
     "fr": "FR",
     "de": "DE",
@@ -58,7 +58,7 @@ def output_text(file_paths, output_path, num):
             zhs = os.path.basename(file_path).split("-", 1)[-1][0:-4]
         elif 'JA\\' in file_path:
             ja = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'KR\\' in file_path:
+        elif 'KO\\' in file_path:
             ko = os.path.basename(file_path).split("-", 1)[-1][0:-4]
         elif 'RU\\' in file_path:
             ru = os.path.basename(file_path).split("-", 1)[-1][0:-4]

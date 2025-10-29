@@ -19,21 +19,17 @@ LANG_DIRECTORY_MAPPING = {
     "pl": "PL"
 }
 
-def search_with_es(nums, path, temp_txt_path):
-    # 使用 es.exe 在指定路径中搜索每个 num 并导出结果到临时文本文件
+def search_with_es(num, path, temp_txt_path):
+    # 使用 es.exe 在指定路径中搜索并导出到临时文本文件
     es_exe_path = r'C:\Program Files\Everything\es.exe'
-    combined_results = []
+    command = f'"{es_exe_path}" "{num}" -path "{path}" -export-txt "{temp_txt_path}"'
+    subprocess.run(command, shell=True)
     
-    for num in nums:
-        command = f'"{es_exe_path}" "{num}" -path "{path}" -export-txt "{temp_txt_path}"'
-        subprocess.run(command, shell=True)
-        
-        # 从临时文本文件读取搜索结果
-        with open(temp_txt_path, 'r', encoding='utf-8') as file:
-            result = [line.strip() for line in file.readlines()]
-            combined_results.extend(result)
+    # 从临时文本文件读取搜索结果
+    with open(temp_txt_path, 'r', encoding='utf-8') as file:
+        result = [line.strip() for line in file.readlines()]
     
-    return combined_results
+    return result
 
 def get_lang_abbr(directory):
     for lang_abbr, lang_dir in LANG_DIRECTORY_MAPPING.items():
@@ -55,45 +51,64 @@ def rename_and_convert(file_paths, output_folder):
         sound = AudioSegment.from_file(file_path, format="ogg")
         sound.export(new_path, format="mp3")
 
-def output_text(file_paths, output_path, nums):
-    text_data = {}
-    
-    for num in nums:
-        text_data[num] = {}
-    
+def output_text(file_paths, output_path, num):
+    en = zhs = zht = ja = ko = ru = fr = de = it = esla = eseu = pt = pl = ""
+
     for file_path in file_paths:
-        for num in nums:
-            if num in file_path:
-                lang_abbr = get_lang_abbr(os.path.dirname(file_path))
-                text_data[num][lang_abbr] = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        if 'EN\\' in file_path:
+            en = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'ZHT\\' in file_path:
+            zht = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'ZHS\\' in file_path:
+            zhs = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'JA\\' in file_path:
+            ja = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'KO\\' in file_path:
+            ko = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'RU\\' in file_path:
+            ru = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'FR\\' in file_path:
+            fr = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'DE\\' in file_path:
+            de = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'IT\\' in file_path:
+            it = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'ESEU\\' in file_path:
+            eseu = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'ESLA\\' in file_path:
+            esla = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'PT\\' in file_path:
+            pt = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        elif 'PL\\' in file_path:
+            pl = os.path.basename(file_path).split("-", 1)[-1][0:-4]
 
-    with open(output_path, "w+", encoding='utf-8') as file_to_write:
-        for num, lang_data in text_data.items():
-            file_to_write.write(f'''{{{{OW13UFool|Num = {num}
-|en = {lang_data.get("en", "")} 
-|zh = {lang_data.get("zh", "")}
-|zht = {lang_data.get("zht", "")}
-|ja = {lang_data.get("ja", "")}
-|ko = {lang_data.get("ko", "")}
-|ru = {lang_data.get("ru", "")}
-|fr = {lang_data.get("fr", "")}
-|de = {lang_data.get("de", "")}
-|eseu = {lang_data.get("eseu", "")}
-|esla = {lang_data.get("esla", "")}
-|it = {lang_data.get("it", "")}
-|pt = {lang_data.get("pt", "")}
-|pl = {lang_data.get("pl", "")}
-}}}}\n''')
+    with open(output_path, "a+", encoding='utf-8') as file_to_write:
+        file_to_write.write(f'''{{{{OW13UFool|Num = {num}
+|en = {en}
+|zh = {zhs}
+|zht = {zht}
+|ja = {ja}
+|ko = {ko}
+|ru = {ru}
+|fr = {fr}
+|de = {de}
+|eseu = {eseu}
+|esla = {esla}
+|it = {it}
+|pt = {pt}
+|pl = {pl}
+}}}}
+''')
 
-path = r"F:\守望先锋语音整理\ow-240826"
-nums = input("请输入ID（逗号分隔）: ").split(",")
-output_path = r"F:\守望先锋语音整理\ow-240826\ulti.txt"
-output_folder = r"F:\守望先锋语音整理\ow-240826\转换后的音频"
-temp_txt_path = r"F:\守望先锋语音整理\ow-240826\temp_search_results.txt"
+path = "G:\\守望语音\\ow-wuyang-ver"
+num = input("请输入ID: ")
+output_path = "G:\\守望语音\\ow-wuyang-ver\\ulti.txt"
+output_folder = "G:\\守望语音\\ow-wuyang-ver\\转换后的音频"
+temp_txt_path = "G:\\守望语音\\ow-wuyang-ver\\temp_search_results.txt"
 
-file_paths = search_with_es(nums, path, temp_txt_path)
+file_paths = search_with_es(num, path, temp_txt_path)
 if file_paths:
-    output_text(file_paths, output_path, nums)
+    output_text(file_paths, output_path, num)
     print("输出已保存到", output_path)
     rename_and_convert(file_paths, output_folder)
     print("音频已转换并保存到", output_folder)

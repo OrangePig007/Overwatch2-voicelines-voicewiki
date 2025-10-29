@@ -1,6 +1,8 @@
 import os
 import shutil
 
+#用于整理对话
+
 def delete_folders_from_txt(txt_file, folder_path):
     # 读取txt文件中的字符串序列
     with open(txt_file, 'r') as f:
@@ -23,8 +25,8 @@ def delete_folders_from_txt(txt_file, folder_path):
                     print(f"Error: {folder_path_to_delete} : {e.strerror}")
 
 # 指定txt文件路径和要清理的文件夹路径
-txt_file_path = r'F:\守望先锋语音整理\ow-240426\all-conv-num-240426.txt'
-folder_to_delete_path = r'F:\守望先锋语音整理\ow-240426\ZH-conv'
+txt_file_path = r'守望先锋2语音处理py\新的语音更新处理方法\all-conv-num-240426.txt'
+folder_to_delete_path = r'D:\ow-240826\对话(zh)'
 
 # 调用函数删除文件夹
 delete_folders_from_txt(txt_file_path, folder_to_delete_path)
