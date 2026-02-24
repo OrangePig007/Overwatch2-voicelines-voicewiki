@@ -34,11 +34,16 @@
 == 感谢{{OWIcon|感谢}} ==
 #Thanks
 
+== 赞赏{{OWIcon|赞赏}} ==
+#Unknown\11E1.078
+
 == 需要帮助{{OWIcon|帮助}} ==
 #AssistanceRequired
 
 == 有敌人{{OWIcon|敌人}} ==
 * 未标记到敌人
+#11DA.078
+* 标记到隐身的敌人
 #EnemyDetected
 * 标记到敌人
 #Unknown\1117.078
@@ -125,3 +130,6 @@
 
 * 在这准备
 #SetupHere
+
+* 做好准备
+#GetReady

@@ -1,12 +1,12 @@
 
-hero = 'lupa'
-condition = '地图触发'
+hero = 'Mizuki'
+condition = '击杀语音'
 #击杀语音 交流信号 局内触发 任务相关 地图触发
 # 读取文档1和文档2的内容
 # with open(f'F:/QQ文件/试验/20231005-{hero_zh}.txt', 'r', encoding='utf-8') as file1:
 #     doc1_content = file1.read()
 
-with open(f'G:\守望语音\ow-lupa-ver/{hero}-251216v2.txt', 'r', encoding='utf-8') as file1:
+with open(f'G:\守望语音\ow-domina-ver/{hero}-260224.txt', 'r', encoding='utf-8') as file1:
     doc1_content = file1.read()
 
 with open(f'G:\GithubFile\Overwatch2-voicelines-voicewiki\守望先锋2语音处理py\根据模板填充\{condition}模板.txt', 'r', encoding='utf-8') as file2:
@@ -52,5 +52,5 @@ for line in doc2_lines:
         final_doc += line + '\n'
 
 # 将最终文档写入文件
-with open(f'G:\守望语音\ow-lupa-ver/{condition}output.txt', 'w', encoding='utf-8') as final_file:
+with open(f'G:\守望语音\ow-domina-ver/{condition}output.txt', 'w', encoding='utf-8') as final_file:
     final_file.write(final_doc)

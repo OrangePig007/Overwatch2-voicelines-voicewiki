@@ -21,7 +21,7 @@ num_set = set()
 
 
 # 语音---读取输入文件
-with open(r'G:\守望语音\ow-freja-ver\upload/filelist.txt', 'r') as file:
+with open(r'G:\守望语音\ow-domina-ver\upload\EN/filelist.txt', 'r') as file:
     for line in file.readlines():
         if '.0B2' in line:
             # 获取 num 值
@@ -33,5 +33,5 @@ with open(r'G:\守望语音\ow-freja-ver\upload/filelist.txt', 'r') as file:
                 num_set.add(num)
                 
                 # 将 num 写入输出文件
-                with open(r'守望先锋2语音处理py\新的语音更新处理方法\all-vo-num-240827.txt', 'a+') as output_file:
+                with open(r'守望先锋2语音处理py\新的语音更新处理方法\all-vo-num-250427.txt', 'a+') as output_file:
                     output_file.write(num + '\n')

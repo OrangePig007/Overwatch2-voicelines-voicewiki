@@ -90,29 +90,3 @@
 
 * 捡起敌方旗帜{{OWIcon|旗帜}}
 #CTF\PickedUpFlag
-
-== 未知的占领目标 ==
-''或许是限时PvE模式。''
-*想要摧毁目标
-#Objective\Destroy
-
-*敌方目标受损
-#Objective\EnemyDamaged
-
-*我方目标受损
-#Objective\Damaged
-
-*敌方目标受损严重
-#Objective\EnemyDestroyed
-
-*清除目标
-#Objective\Eliminated
-
-*到目标那
-#Objective\Meet
-
-*拿下目标
-#Objective\Take
-
-*指示攻击目标
-#Objective\Kill

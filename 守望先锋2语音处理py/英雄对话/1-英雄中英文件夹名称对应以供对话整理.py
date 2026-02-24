@@ -46,7 +46,12 @@ name_mapping = {
     '骇灾': 'Hazard',
     '弗蕾娅': 'Freja',
     '无漾': 'Wuyang',
-
+    '斩仇': 'Vendetta',
+    '安燃': 'Anran',
+    '埃姆雷': 'Emre',
+    '金驭': 'Domina',
+    '瑞稀': 'Mizuki',
+    '飞天猫': 'Jetpack Cat',
 
     '克莱尔': 'Claire',
     '雷吉': 'Reggie',
@@ -61,7 +66,7 @@ name_mapping = {
 }
 
 # 指定包含二级文件夹的父文件夹路径
-parent_folder = r'G:\守望语音\ow-wuyang-ver\对话(zh)\HeroConvo'
+parent_folder = r'G:\守望语音\ow-domina-ver\upload\ZH\BetterHeroVoice'
 
 # 遍历父文件夹中的二级文件夹
 for old_name, new_name in name_mapping.items():

@@ -113,11 +113,11 @@ def output_text(file_paths, output_path, num):
 }}}}
 ''')
 
-path = "G:\\守望语音\\ow-lupa-ver"
+path = "G:\\守望语音\\ow-echo-anran"
 num = input("请输入ID: ")
-output_path = "G:\\守望语音\\ow-lupa-ver\\ulti.txt"
-output_folder = "G:\\守望语音\\ow-lupa-ver\\转换后的音频"
-temp_txt_path = "G:\\守望语音\\ow-lupa-ver\\temp_search_results.txt"
+output_path = "G:\\守望语音\\ow-echo-anran\\ulti.txt"
+output_folder = "G:\\守望语音\\ow-echo-anran\\转换后的音频"
+temp_txt_path = "G:\\守望语音\\ow-echo-anran\\temp_search_results.txt"
 
 file_paths = search_with_es(num, path, temp_txt_path)
 if file_paths:
