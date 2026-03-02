@@ -100,11 +100,12 @@ def output_text(file_paths, output_path, num):
 }}}}
 ''')
 
-path = "G:\\守望语音\\ow-wuyang-ver"
+home_folder = 'ow-domina-ver'
+path = f"G:\\守望语音\\{home_folder}"
 num = input("请输入ID: ")
-output_path = "G:\\守望语音\\ow-wuyang-ver\\ulti.txt"
-output_folder = "G:\\守望语音\\ow-wuyang-ver\\转换后的音频"
-temp_txt_path = "G:\\守望语音\\ow-wuyang-ver\\temp_search_results.txt"
+output_path = f"G:\\守望语音\\{home_folder}\\ulti.txt"
+output_folder = f"G:\\守望语音\\{home_folder}\\转换后的音频"
+temp_txt_path = f"G:\\守望语音\\{home_folder}\\temp_search_results.txt"
 
 file_paths = search_with_es(num, path, temp_txt_path)
 if file_paths:
