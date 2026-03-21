@@ -66,7 +66,7 @@ name_mapping = {
 }
 
 # 指定包含二级文件夹的父文件夹路径
-parent_folder = r'G:\守望语音\ow-domina-ver\upload\ZH\BetterHeroVoice'
+parent_folder = r'G:\守望语音\ow-domina-ver\ZHS\BetterHeroVoice'
 
 # 遍历父文件夹中的二级文件夹
 for old_name, new_name in name_mapping.items():

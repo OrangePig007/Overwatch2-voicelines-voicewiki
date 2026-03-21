@@ -6,6 +6,8 @@
 #Healing
 * 需要治疗者
 #NeedHealer
+* 附近没有治疗者
+#Unknown\12E1.078
 * 找我治疗
 #ComeForHealing
 * 需要护盾
@@ -34,7 +36,7 @@
 == 感谢{{OWIcon|感谢}} ==
 #Thanks
 
-== 赞赏{{OWIcon|赞赏}} ==
+== 夸奖{{OWIcon|夸奖}} ==
 #Unknown\11E1.078
 
 == 需要帮助{{OWIcon|帮助}} ==

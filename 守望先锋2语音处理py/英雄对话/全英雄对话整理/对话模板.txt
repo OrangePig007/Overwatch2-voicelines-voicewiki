@@ -37,6 +37,9 @@
 == 骇灾 ==
 #Hazard
 
+== 金驭 ==
+#Domina
+
 == 半藏 ==
 #Hanzo
 
@@ -94,6 +97,15 @@
 == 弗蕾娅 ==
 #Freja
 
+== 斩仇 ==
+#Vendetta
+
+== 安燃 ==
+#Anran
+
+== 埃姆雷 ==
+#Emre
+
 == 卢西奥 ==
 #Lúcio
 
@@ -130,3 +142,8 @@
 == 无漾 ==
 #Wuyang
 
+== 瑞稀 ==
+#Mizuki
+
+== 飞天猫 ==
+#Jetpack Cat

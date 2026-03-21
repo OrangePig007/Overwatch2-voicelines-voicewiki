@@ -52,10 +52,10 @@ def save(file_path, hero, action, zh_path, en_path, first=None):
         print(f"处理 {action} 时出错: {str(e)}")
 
 
-hero = 'AllConv'
-file = f'G:\\守望语音\\ow-wuyang-ver\\{hero}250919.txt'
-action_en = r'G:\守望语音\ow-wuyang-ver\对话(en)\HeroConvo'
-action_zh = r'G:\守望语音\ow-wuyang-ver\对话(zh)\HeroConvo'
+hero = 'all'
+file = f'G:\\守望语音\\ow-domina-ver\\{hero}260307.txt'
+action_en = r'G:\守望语音\ow-domina-ver\对话(en)\HeroConvo'
+action_zh = r'G:\守望语音\ow-domina-ver\对话(zh)\HeroConvo'
 actions_en = os.listdir(action_en)
 
 actions = []

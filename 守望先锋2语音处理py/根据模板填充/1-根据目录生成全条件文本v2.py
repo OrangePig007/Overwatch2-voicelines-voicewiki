@@ -1,15 +1,17 @@
 import os
 #这个会把大招文件夹的音频和文件夹都统计
 
+# --- 在这里定义你的过滤关键词 ---
+filter_keyword = ''  # 如果想处理所有文件，请设置为 '' 或 None
 
 # 定义一个专门记录错误日志的文件路径
 filefolder = 'ow-domina-ver'
 error_log_path = f'G:\\守望语音\\{filefolder}\\missing_paths_log.txt'
 
-hero = 'Emre'
-file = f'G:\\守望语音\\{filefolder}\\{hero}-260224fin.txt'
-action_zh = rf'G:\守望语音\ow-domina-ver\ZH-NPC\NPCVoice\埃姆雷'
-action_en = rf'G:\守望语音\ow-domina-ver\EN-NPC\NPCVoice\Emre'
+hero = 'All'
+file = f'G:\\守望语音\\{filefolder}\\{hero}-260308-所有音频.txt'
+action_zh = rf'G:\守望语音\ow-domina-ver\ZHS\BetterHeroVoice'
+action_en = rf'G:\守望语音\ow-domina-ver\EN\BetterHeroVoice'
 actions_en = os.listdir(action_en)
 
 actions = []
@@ -100,7 +102,11 @@ for i in actions_en:
 actions.sort()
 print(actions)
 open(file, 'w+', encoding='utf-8')
-#first_gen = set(i.strip() for i in open('E:\守望先锋毛加版本语音\py\Overwatch2-voicelines-voicewiki-main\守望先锋2语音处理py\overall/守望先锋1代所有语音序号.txt', 'r', encoding='utf-8').readlines())
+first_gen = set(i.strip() for i in open('守望先锋2语音处理py\根据模板填充\守望先锋1代所有语音序号.txt', 'r', encoding='utf-8').readlines())
 first_gen = ''
 for action in actions:
+    # 增加过滤逻辑：如果关键词不为空且路径中不包含关键词，则跳过
+    if filter_keyword and filter_keyword not in action:
+        continue
+        
     save(file, hero, action, action_zh, action_en, first_gen)

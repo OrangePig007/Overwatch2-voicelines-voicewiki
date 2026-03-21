@@ -1,8 +1,8 @@
 import os
 from pydub import AudioSegment
 import subprocess
-
-# 语言映射关系，用于给音频后缀命名
+# 可以同时处理多个20260309
+# 语言映射关系
 LANG_DIRECTORY_MAPPING = {
     "ja": "JA",
     "en": "EN",
@@ -20,101 +20,111 @@ LANG_DIRECTORY_MAPPING = {
 }
 
 def search_with_es(num, path, temp_txt_path):
-    # 使用 es.exe 在指定路径中搜索并导出到临时文本文件
     es_exe_path = r'C:\Program Files\Everything\es.exe'
+    # 使用 double quotes 处理路径中可能存在的空格
     command = f'"{es_exe_path}" "{num}" -path "{path}" -export-txt "{temp_txt_path}"'
     subprocess.run(command, shell=True)
     
-    # 从临时文本文件读取搜索结果
+    if not os.path.exists(temp_txt_path):
+        return []
+        
     with open(temp_txt_path, 'r', encoding='utf-8') as file:
-        result = [line.strip() for line in file.readlines()]
+        result = [line.strip() for line in file.readlines() if line.strip()]
     
     return result
 
 def get_lang_abbr(directory):
     for lang_abbr, lang_dir in LANG_DIRECTORY_MAPPING.items():
-        if lang_dir in directory:
+        if f'\\{lang_dir}\\' in f'\\{directory}\\': # 增强匹配准确度
             return lang_abbr
     return os.path.basename(directory).upper()
 
 def rename_and_convert(file_paths, output_folder):
     for file_path in file_paths:
-        filename = os.path.basename(file_path)
-        lang_abbr = get_lang_abbr(os.path.dirname(file_path))
+        try:
+            filename = os.path.basename(file_path)
+            lang_abbr = get_lang_abbr(os.path.dirname(file_path))
 
-        lang_folder = os.path.join(output_folder)
-        os.makedirs(lang_folder, exist_ok=True)
+            os.makedirs(output_folder, exist_ok=True)
 
-        new_filename = f"{filename.split('-', 1)[0]}_{lang_abbr}.mp3"
-        new_path = os.path.join(output_folder, new_filename)
+            # 格式：ID_语言.mp3
+            new_filename = f"{filename.split('-', 1)[0]}_{lang_abbr}.mp3"
+            new_path = os.path.join(output_folder, new_filename)
 
-        sound = AudioSegment.from_file(file_path, format="ogg")
-        sound.export(new_path, format="mp3")
+            if not os.path.exists(new_path): # 避免重复转换
+                sound = AudioSegment.from_file(file_path, format="ogg")
+                sound.export(new_path, format="mp3")
+        except Exception as e:
+            print(f"转换文件 {file_path} 时出错: {e}")
 
 def output_text(file_paths, output_path, num):
-    en = zhs = zht = ja = ko = ru = fr = de = it = esla = eseu = pt = pl = ""
+    # 初始化语言字典，方便扩展
+    langs = {k: "" for k in ["en", "zhs", "zht", "ja", "ko", "ru", "fr", "de", "it", "esla", "eseu", "pt", "pl"]}
 
     for file_path in file_paths:
-        if 'EN\\' in file_path:
-            en = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'ZHT\\' in file_path:
-            zht = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'ZHS\\' in file_path:
-            zhs = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'JA\\' in file_path:
-            ja = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'KO\\' in file_path:
-            ko = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'RU\\' in file_path:
-            ru = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'FR\\' in file_path:
-            fr = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'DE\\' in file_path:
-            de = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'IT\\' in file_path:
-            it = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'ESEU\\' in file_path:
-            eseu = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'ESLA\\' in file_path:
-            esla = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'PT\\' in file_path:
-            pt = os.path.basename(file_path).split("-", 1)[-1][0:-4]
-        elif 'PL\\' in file_path:
-            pl = os.path.basename(file_path).split("-", 1)[-1][0:-4]
+        content = os.path.basename(file_path).split("-", 1)[-1][:-4]
+        dirname = os.path.dirname(file_path).upper()
+        
+        if 'EN\\' in dirname: langs['en'] = content
+        elif 'ZHT\\' in dirname: langs['zht'] = content
+        elif 'ZHS\\' in dirname: langs['zhs'] = content
+        elif 'JA\\' in dirname: langs['ja'] = content
+        elif 'KO\\' in dirname: langs['ko'] = content
+        elif 'RU\\' in dirname: langs['ru'] = content
+        elif 'FR\\' in dirname: langs['fr'] = content
+        elif 'DE\\' in dirname: langs['de'] = content
+        elif 'IT\\' in dirname: langs['it'] = content
+        elif 'ESEU\\' in dirname: langs['eseu'] = content
+        elif 'ESLA\\' in dirname: langs['esla'] = content
+        elif 'PT\\' in dirname: langs['pt'] = content
+        elif 'PL\\' in dirname: langs['pl'] = content
 
     with open(output_path, "a+", encoding='utf-8') as file_to_write:
         file_to_write.write(f'''{{{{OW13UFool|Num = {num}
-|en = {en}
-|zh = {zhs}
-|zht = {zht}
-|ja = {ja}
-|ko = {ko}
-|ru = {ru}
-|fr = {fr}
-|de = {de}
-|eseu = {eseu}
-|esla = {esla}
-|it = {it}
-|pt = {pt}
-|pl = {pl}
+|en = {langs['en']}
+|zh = {langs['zhs']}
+|zht = {langs['zht']}
+|ja = {langs['ja']}
+|ko = {langs['ko']}
+|ru = {langs['ru']}
+|fr = {langs['fr']}
+|de = {langs['de']}
+|eseu = {langs['eseu']}
+|esla = {langs['esla']}
+|it = {langs['it']}
+|pt = {langs['pt']}
+|pl = {langs['pl']}
 }}}}
 ''')
 
+# --- 主程序逻辑 ---
+
 home_folder = 'ow-domina-ver'
-path = f"G:\\守望语音\\{home_folder}"
-num = input("请输入ID: ")
-output_path = f"G:\\守望语音\\{home_folder}\\ulti.txt"
-output_folder = f"G:\\守望语音\\{home_folder}\\转换后的音频"
-temp_txt_path = f"G:\\守望语音\\{home_folder}\\temp_search_results.txt"
+base_path = f"G:\\守望语音\\{home_folder}"
+output_path = os.path.join(base_path, "ulti.txt")
+output_folder = os.path.join(base_path, "转换后的音频")
+temp_txt_path = os.path.join(base_path, "temp_search_results.txt")
 
-file_paths = search_with_es(num, path, temp_txt_path)
-if file_paths:
-    output_text(file_paths, output_path, num)
-    print("输出已保存到", output_path)
-    rename_and_convert(file_paths, output_folder)
-    print("音频已转换并保存到", output_folder)
-else:
-    print("未找到相关文件。")
+# 获取输入并处理成列表
+raw_input = input("请输入ID (支持多个，用空格或逗号分隔): ")
+# 将逗号和分号统一替换为空格，然后分割字符串
+id_list = raw_input.replace(',', ' ').replace(';', ' ').split()
 
-# 删除临时文本文件
-os.remove(temp_txt_path)
+for current_id in id_list:
+    current_id = current_id.strip()
+    print(f"\n正在处理 ID: {current_id}...")
+    
+    file_paths = search_with_es(current_id, base_path, temp_txt_path)
+    
+    if file_paths:
+        output_text(file_paths, output_path, current_id)
+        rename_and_convert(file_paths, output_folder)
+        print(f"ID {current_id} 处理完成。")
+    else:
+        print(f"未找到与 ID {current_id} 相关的文件。")
+
+# 清理临时文件
+if os.path.exists(temp_txt_path):
+    os.remove(temp_txt_path)
+
+print("\n所有任务已执行完毕！")

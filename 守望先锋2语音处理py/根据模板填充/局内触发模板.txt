@@ -22,6 +22,8 @@
 ==重生==
 #Respawn
 
+*被团灭后重生
+#Unknown\1173.078
 ==队伍少人==
 #Unknown\11C2.078
 
@@ -59,32 +61,23 @@
 ==部署物相关==
 === {{OWAI|Teleporter|传送面板}} ===
 #Teleporter\EnemyFindTeleporter
-
 *寻找敌人 {{OWAI|Teleporter|传送面板}}
 #Teleporter\EnemyHasTeleporter
-
 *发现敌人 {{OWAI|Teleporter|传送面板}}
 #Teleporter\EnemyTeleporterSeen
-
 *摧毁敌人 {{OWAI|Teleporter|传送面板}}
 #Teleporter\EnemyTeleporterDestroyed
-
 ===护盾发生器===
 #ShieldGenerator\EnemyHasShieldGen
-
 *发现敌人护盾发生器
 #ShieldGenerator\FoundEnemyShieldGen
-
 *摧毁敌人护盾发生器
 #ShieldGenerator\EnemyShieldGenDestroyed
-
 === {{OWAI|Deploy Turret|炮台}} ===
 *发现 {{OWAI|Deploy Turret|炮台}}
 #Turret\EnemyTurretSeen
-
 *摧毁 {{OWAI|Deploy Turret|炮台}}
 #Turret\EnemyTurretDestroyed
-
 ==被激素强化==
 #NanoBoosted
 
@@ -98,8 +91,6 @@
 
 *受到 {{OW2Hero|禅雅塔}} {{OWAI|Orb of Discord|乱}} 的效果
 #Discorded
-==获得赏金==
-#Reward
 
 ==火力全开==
 #OnFire
@@ -108,14 +99,14 @@
 #TeamKill
 
 ==队友相关==
-*队友倒下
-#Teammate\Downed
 *队友击杀敌人
 #Teammate\KillSeen
 *给队友报位置
 #Teammate\Location
-*拯救队友
+*辅助低生命值队友击杀
 #Teammate\Rescue
+*队友倒下
+#Teammate\Downed
 *复活队友
 #Teammate\Revive
 

@@ -33,8 +33,8 @@ def process_audio_file(source_file, list_file, output_file):
     print(f"处理完成！结果已保存至: {output_file}")
 
 # 绝对路径示例
-source_path = r"G:\守望语音\新更新-250428.txt"
-list_path = r"G:\GithubFile\Overwatch2-voicelines-voicewiki\守望先锋2语音处理py\overall\守望先锋1代所有语音序号.txt"
-output_path = r"G:\守望语音\新更新-250428-1代标了序号.txt"
+source_path = r"G:\守望语音\ow-domina-ver\All-260308-所有音频.txt"
+list_path = r"G:\GithubFile\Overwatch2-voicelines-voicewiki\守望先锋2语音处理py\根据模板填充\守望先锋1代所有语音序号.txt"
+output_path = r"G:\守望语音\ow-domina-ver\All-260308-所有音频-1代标了序号.txt"
 
 process_audio_file(source_path, list_path, output_path)
