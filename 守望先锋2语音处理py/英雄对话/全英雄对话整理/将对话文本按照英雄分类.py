@@ -17,6 +17,8 @@ OUTPUT_FOLDER = r'G:\守望语音\ow-domina-ver'
 TARGET_HERO_CHINESE = "天使"
 OUTPUT_FILENAME = f'{TARGET_HERO_CHINESE}_双人对话.txt'
 OUTPUT_PATH = os.path.join(OUTPUT_FOLDER, OUTPUT_FILENAME)
+INCLUDE_EMPTY_SECTIONS = True
+ENABLE_SECTION_REFERENCE = True
 
 # 4. 音频文件路径
 AUDIO_EN_FOLDER = r'G:\守望语音\ow-domina-ver\对话(en)\HeroConvo'
@@ -26,10 +28,10 @@ UPLOAD_FOLDER = r'G:\守望语音\ow-domina-ver\待上传'
 # 5. 英雄顺序 (已更新)
 HERO_ORDER = [
     'D.Va', '奥丽莎', '查莉娅', '温斯顿', '破坏球', '莱因哈特', '西格玛', 
-    '路霸', '末日铁拳', '渣客女王', '拉玛刹', '毛加', '骇灾', '金驭', '半藏', 
+    '路霸', '末日铁拳', '渣客女王', '拉玛刹', '毛加', '骇灾', '金驭', 'D.Mon', '半藏', 
     '回声', '堡垒', '士兵：76', '托比昂', '死神', '法老之鹰', '源氏', 
     '狂鼠', '猎空', '秩序之光', '美', '艾什', '卡西迪', '黑影', '黑百合', 
-    '索杰恩', '探奇', '弗蕾娅', '斩仇','安燃','埃姆雷', '卢西奥', '天使', '安娜', '巴蒂斯特', 
+    '索杰恩', '探奇', '弗蕾娅', '斩仇','安燃','埃姆雷', '西拉', '死怨', '卢西奥', '天使', '安娜', '巴蒂斯特', 
     '布丽吉塔', '禅雅塔', '莫伊拉', '雾子', '生命之梭', '伊拉锐', '朱诺', '无漾', 
     '瑞稀', '飞天猫'  # 新增
 ]
@@ -54,10 +56,20 @@ name_mapping = {
     '安燃': 'Anran',
     '埃姆雷': 'Emre',
     '金驭': 'Domina',
+    'D.Mon': 'D.Mon',
+    '西拉': 'Sierra',
+    '死怨': 'Shion',
     '瑞稀': 'Mizuki',
     '飞天猫': 'Jetpack Cat',
 }
 reverse_name_mapping = {v: k for k, v in name_mapping.items()}
+name_aliases = {
+    'Soldier76': 'Soldier_ 76',
+    'Soldier: 76': 'Soldier_ 76',
+    'Torbjorn': 'Torbjörn',
+    'Lucio': 'Lúcio',
+    'JetpackCat': 'Jetpack Cat',
+}
 
 
 # ==============================
@@ -95,6 +107,20 @@ def copy_audio_to_upload(audio_id, audio_map_en, audio_map_zh, upload_folder):
     if audio_id in audio_map_zh:
         zh_dest = os.path.join(upload_folder, f"{audio_id}_zh.ogg")
         shutil.copy(audio_map_zh[audio_id], zh_dest)
+
+
+def normalize_hero_name(hero_name):
+    return name_aliases.get(hero_name, hero_name)
+
+
+def get_page_title(hero_cn):
+    if hero_cn == 'D.Va':
+        return 'D.Va(守望先锋2)/英雄互动'
+    return f'{hero_cn}（守望先锋2）/英雄互动'
+
+
+def build_section_reference(source_hero_cn, target_hero_cn):
+    return f'{{{{#section-h:{get_page_title(source_hero_cn)}|{target_hero_cn}}}}}'
 
 
 # ==============================
@@ -147,7 +173,7 @@ def main():
         for hero_part in block.split('|hero'):
             if not hero_part.strip(): continue
             try:
-                h_name = hero_part.strip().split('|')[0].split('=')[-1]
+                h_name = normalize_hero_name(hero_part.strip().split('|')[0].split('=')[-1])
                 if h_name and h_name not in heroes_in_block:
                     heroes_in_block.append(h_name)
             except IndexError: continue
@@ -179,14 +205,28 @@ def main():
         else:
             print(f"跳过未识别英雄: {hero_en}")
 
-    sorted_heroes_cn = [h for h in HERO_ORDER if h in available_heroes_cn]
+    sorted_heroes_cn = [h for h in HERO_ORDER if h != TARGET_HERO_CHINESE]
+    hero_order_index = {hero_cn: index for index, hero_cn in enumerate(HERO_ORDER)}
+    target_index = hero_order_index.get(TARGET_HERO_CHINESE, -1)
 
     output_content = f"{{{{Back|{TARGET_HERO_CHINESE}（守望先锋2）|{TARGET_HERO_CHINESE}}}}}\n\n"
+    full_section_count = 0
+    reference_section_count = 0
+    empty_section_count = 0
     for hero_cn in sorted_heroes_cn:
-        hero_en = name_mapping[hero_cn]
-        dialogues = hero_dialogues[hero_en]
         output_content += f"== {hero_cn} ==\n"
-        output_content += "\n".join(dialogues) + "\n\n"
+        hero_en = name_mapping.get(hero_cn)
+        dialogues = hero_dialogues.get(hero_en, [])
+
+        if dialogues and ENABLE_SECTION_REFERENCE and hero_order_index.get(hero_cn, 999) < target_index:
+            output_content += build_section_reference(hero_cn, TARGET_HERO_CHINESE) + "\n\n"
+            reference_section_count += 1
+        elif dialogues:
+            output_content += "\n".join(dialogues) + "\n\n"
+            full_section_count += 1
+        elif INCLUDE_EMPTY_SECTIONS:
+            output_content += "暂时没有对话……\n\n"
+            empty_section_count += 1
 
     # 5. 写入文件
     try:
@@ -195,7 +235,9 @@ def main():
             f.write(output_content)
         print(f"\n任务完成！")
         print(f"文本已保存至: {OUTPUT_PATH}")
-        print(f"整理了与 {len(sorted_heroes_cn)} 位英雄的对话")
+        print(f"全文章节: {full_section_count}")
+        print(f"引用章节: {reference_section_count}")
+        print(f"空章节: {empty_section_count}")
         if ENABLE_AUDIO_COPY:
             print(f"已同步复制音频文件: {len(used_audio_ids)} 个")
     except Exception as e:

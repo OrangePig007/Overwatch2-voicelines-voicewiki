@@ -99,7 +99,7 @@ def output_text(file_paths, output_path, num):
 
 # --- 主程序逻辑 ---
 
-home_folder = 'ow-domina-ver'
+home_folder = 'ow-Sierra-ver'
 base_path = f"G:\\守望语音\\{home_folder}"
 output_path = os.path.join(base_path, "ulti.txt")
 output_folder = os.path.join(base_path, "转换后的音频")

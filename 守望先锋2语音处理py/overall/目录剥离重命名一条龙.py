@@ -3,8 +3,8 @@ import shutil
 from tqdm import tqdm
 
 # --- 在这里配置你的路径 ---
-SOURCE_DIR = r"G:\守望语音\ow-domina-ver\EN-NPC\NPCVoice\Emre"  # 原始文件夹
-TARGET_DIR = r"G:\守望语音\ow-domina-ver\upload\传"  # 目标文件夹
+SOURCE_DIR = r"G:\守望语音\ow-shion-ver\EN\HeroVoice"  # 原始文件夹
+TARGET_DIR = r"G:\守望语音\vw-up"  # 目标文件夹
 # -----------------------
 
 def get_all_files(source_path):

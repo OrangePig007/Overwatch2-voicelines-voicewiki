@@ -2,6 +2,7 @@ import os
 from pydub import AudioSegment
 import subprocess
 
+# del /s /q *.txt  CMD 删除所有子文件夹内 txt 文件命令
 # 语言映射关系，用于给音频后缀命名
 LANG_DIRECTORY_MAPPING = {
     "ja": "JA",
@@ -113,7 +114,7 @@ def output_text(file_paths, output_path, num):
 }}}}
 ''')
 
-home_folder = 'ow-domina-ver'
+home_folder = 'ow-dmon-ver'
 path = f"G:\\守望语音\\{home_folder}"
 num = input("请输入ID: ")
 output_path = f"G:\\守望语音\\{home_folder}\\ulti.txt"

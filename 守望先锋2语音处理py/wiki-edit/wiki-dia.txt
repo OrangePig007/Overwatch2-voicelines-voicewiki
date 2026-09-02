@@ -1,0 +1,85 @@
+{{Back|飞天猫(守望先锋2)|飞天猫}}
+
+== 温斯顿 ==
+{{OWVoiceTable
+|hero1=Winston|file1=00000006AD00.0B2|en1=Fika, were you playing on my desk again? You accidentally tripped my security systems!|zh1=啡咖，你是不是又跑到我桌子上玩了？我的安全系统被你给激活了！
+|hero2=Jetpack Cat|file2=00000033F3D3.03F|en2=(innocent meows)|zh2=(无辜地喵喵叫)
+|hero3=Winston|file3=00000006ACFE.0B2|en3=(chuckle) Aww, it's okay. I'll find you something else to play with.|zh3=(笑)噢，没关系。我给你找点别的玩具。
+}}
+{{OWVoiceTable
+|hero1=Winston|file1=00000006AD07.0B2|en1=You remind me of an old friend from the Lunar Colony.|zh1=你让我想起了一位在月球基地时的老朋友。
+|hero2=Jetpack Cat|file2=00000033F3D5.03F|en2=(questioning meows)|zh2=(询问的喵喵叫)
+|hero3=Winston|file3=00000006AD0B.0B2|en3=You're both smart, and cute, and love finding trouble! I hope I can introduce you to him one day.|zh3=你们都很聪明，很可爱，也很能惹麻烦！真希望有一天能介绍你们俩认识。
+}}
+
+== 莱因哈特 ==
+{{OWVoiceTable
+|hero1=Reinhardt|file1=00000006B1FB.0B2|en1=The battle ahead will be perilous. Sharpen those claws, Fika!|zh1=接下来的战斗激烈得很。啡咖，磨尖你的爪子！
+|hero2=Jetpack Cat|file2=00000033F3D8.03F|en2=(contented meows)|zh2=(满意地喵喵叫)
+|hero3=Reinhardt|file3=00000006B1FC.0B2|en3=Or perhaps our enemies will change their ways when they see how cute you are.|zh3=没准等敌人看到你有多可爱，他们可能就拿不动枪了。
+}}
+
+== 拉玛刹 ==
+{{OWVoiceTable
+|hero1=Ramattra|file1=00000006A8CC.0B2|en1=How delightful to see human arrogance contradicted. By a cat, no less.|zh1=没想到自视甚高的人类居然有一天会仰望一只猫，有意思。
+|hero2=Jetpack Cat|file2=00000033F3AF.03F|en2=(proud purring)|zh2=(骄傲的呼噜声)
+}}
+
+== 毛加 ==
+{{OWVoiceTable
+|hero1=Mauga|file1=000000067846.0B2|en1=How about you fly me up and I'll make it rain fire!|zh1=你带我飞上天，让我下场子弹雨怎么样！
+|hero2=Jetpack Cat|file2=00000033F3C6.03F|en2=(doubtful meows)|zh2=(怀疑地喵喵叫)
+}}
+
+== 索杰恩 ==
+{{OWVoiceTable
+|hero1=Sojourn|file1=00000006B19D.0B2|en1=You'd better stay out of trouble out there. Understand, recruit?|zh1=上了战场少去惹麻烦。能听懂吗，新兵？
+|hero2=Jetpack Cat|file2=00000033F3C5.03F|en2=(innocent meows)|zh2=(天真地喵喵叫)
+|hero3=Sojourn|file3=00000006B19E.0B2|en3=And I'll know if you've been sneaking treats between missions!|zh3=还有，敢在任务间隙偷吃零食，我都会发现的！
+|hero4=Jetpack Cat|file4=00000033F3B4.03F|en4=(disappointed meows)|zh4=(沮丧地喵喵叫)
+}}
+
+== 安燃 ==
+{{OWVoiceTable
+|hero1=Anran|file1=00000006AD9D.0B2|en1=(aggressive sneeze) Whew, I think my allergies are acting up.|zh1=(打了个大喷嚏)唉，我的过敏好像又严重了。
+|hero2=Jetpack Cat|file2=00000033F3B6.03F|en2=(innocent meows)|zh2=(无辜地喵喵叫)
+|hero3=Anran|file3=00000006AD9E.0B2|en3=Ugh... no wonder.|zh3=噢……难怪呢。
+}}
+
+== 莫伊拉 ==
+{{OWVoiceTable
+|hero1=Moira|file1=00000006ACD7.0B2|en1=Intelligent, adaptable... You have the makings of a perfect test subject.|zh1=智力高、适应性强……真是个完美的实验目标。
+|hero2=Jetpack Cat|file2=00000033F3CF.03F|en2=(grumbling meows)|zh2=(不满地喵喵叫)
+|hero3=Moira|file3=00000006ACD9.0B2|en3=Hm. Though an added dose of obedience would be appreciated.|zh3=呵……要是服从性再强一点就再好不过了……
+}}
+
+== 雾子 ==
+{{OWVoiceTable
+|hero1=Kiriko|file1=00000006B52F.0B2|en1=You're so cute! I could just squish you to bits!|zh1=你也太可爱啦！真想狠狠地把你rua个够！
+|hero2=Jetpack Cat|file2=00000033F3D4.03F|en2=(warning hiss)|zh2=(警告地哈气)
+|hero3=Kiriko|file3=00000006B530.0B2|en3=Aw, don't worry. I'm just pulling your tail.|zh3=嗷，别怕别怕，我就拽拽你的尾巴。
+|hero4=Jetpack Cat|file4=00000033F3BC.03F|en4=(angry hiss)|zh4=(愤怒地哈气)
+}}
+
+== 朱诺 ==
+{{OWVoiceTable
+|hero1=Jetpack Cat|file1=00000033F3C4.03F|en1=(questioning meows)|zh1=(询问的喵喵叫)
+|hero2=Juno|file2=00000006AE42.0B2|en2=Are you speaking to me?|zh2=你是在跟我说话吗？
+|hero3=Jetpack Cat|file3=00000033F3B1.03F|en3=(affirmative meows)|zh3=(肯定的喵喵叫)
+|hero4=Juno|file4=00000006AE43.0B2|en4=Hm... perhaps I should prioritize "cat" on my list of languages to learn.|zh4=嗯……在我想学的语言里，或许该把“猫语”往前排一排。
+}}
+
+== 无漾 ==
+{{OWVoiceTable
+|hero1=Wuyang|file1=00000006B1C5.0B2|en1=Hey little guy, c'mere! Psst psst psst.|zh1=嗷，小家伙，来来来！啧啧啧。
+|hero2=Jetpack Cat|file2=00000033F3B3.03F|en2=(hisses)|zh2=(哈气)
+|hero3=Wuyang|file3=00000006B1C6.0B2|en3=Ack! Uh... sorry.|zh3=噢！呃……对不起。
+}}
+
+== 瑞稀 ==
+{{OWVoiceTable
+|hero1=Mizuki|file1=00000006B7AA.0B2|en1=(sigh) If only you were a black cat, you could help me ward off evil.|zh1=(叹气)你要是只黑猫多好，这样就能帮我辟邪了。
+|hero2=Jetpack Cat|file2=00000033F3D1.03F|en2=(angry meows)|zh2=(愤怒地喵喵叫)
+|hero3=Mizuki|file3=00000006B362.0B2|en3=Sorry, geez. You're fine the way you are, okay?|zh3=好了抱歉。你现在这样就好，行了吧？
+|hero4=Jetpack Cat|file4=00000033F3CC.03F|en4=(placated meows)|zh4=(息怒的喵喵叫)
+}}
